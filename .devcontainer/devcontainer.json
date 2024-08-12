@@ -1,28 +1,21 @@
 {
-  "name": "Daytona Docs",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "remoteUser": "root",
-  "postCreateCommand": "yarn install",
-  "waitFor": "postCreateCommand",
+  "name": "Daytona Documentation",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "forwardPorts": [
+    8000
+  ],
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "CONTRIBUTING.md"
-      ]
-    },
     "vscode": {
+      "settings": {
+        "javascript.validate.enable": false,
+        "typescript.validate.enable": false
+      },
       "extensions": [
-        "astro-build.astro-vscode",
         "esbenp.prettier-vscode",
-        "unifiedjs.vscode-mdx",
-        "SimonSiefke.svg-preview",
+        "dbaeumer.vscode-eslint",
         "streetsidesoftware.code-spell-checker"
       ]
     }
   },
-  "forwardPorts": [
-    4321
-  ]
+  "postCreateCommand": "yarn install"
 }
